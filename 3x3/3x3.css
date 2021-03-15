@@ -1,0 +1,49 @@
+body {
+	overflow-y: hidden;
+	font-family: Helvetica;
+}
+
+.grid-item {
+	height: 100px;
+	width: 100px;
+	background-color: lime;
+	border-radius: 50px;
+	color: red;
+	text-align: center;
+	line-height: 100px;
+	font-size: 30px;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 75px;
+	margin-top: 50px;
+}
+
+#container {
+	margin: auto;
+	width: 450px;
+}
+
+#time {
+	position: absolute;
+	left: 10vw;
+	top: 50vh;
+}
+
+.active {
+	background-color: red;
+	color: lime;
+}
+
+#item10 {
+	position: relative;
+	left: 90vw;
+	bottom: 100px;
+}
+
+#item0 {
+	position: relative;
+	left: 0;
+}
