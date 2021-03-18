@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<link rel = "stylesheet" href = "3x3.css" />
+		<link rel = "stylesheet" href = "main.css" />
 		<title>
 			3x3 Game
 		</title>
@@ -28,7 +28,7 @@
 			document.getElementById("item0").addEventListener("mouseenter", time);
 			document.documentElement.addEventListener("click", clicking);
 			function clicking() {
-				window.clicks += 1;
+				clicks += 1;
 			}
 			function time() {
 				document.getElementById("item0").addEventListener("mouseleave", exit);
@@ -65,12 +65,12 @@
 			}
 			function game() {
 				if(i == 10) {
+					console.log(i);
 					var d1 = new Date();
 					var n1 = d1.getTime();
-					var c1 = clicks;
 					document.getElementById("item10").classList.remove("active");
 					document.getElementById("item10").removeEventListener("click", abort);
-					alert("Time: " + ((n1 - n) / 1000) + "s\nAccuracy: " + (Math.round(100000 / (c1 + 1))/100) + "%");
+					alert("Time: " + ((n1 - n) / 1000) + "s\nMisclicks: " + (window.clicks - 9));
 					document.getElementById("item0").addEventListener("mouseenter", time);
 					return;
 				}

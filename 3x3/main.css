@@ -4,14 +4,14 @@ body {
 }
 
 .grid-item {
-	height: 100px;
-	width: 100px;
+	height: 8vw;
+	width: 8vw;
 	background-color: lime;
-	border-radius: 50px;
+	border-radius: 5vw;
 	color: red;
 	text-align: center;
-	line-height: 100px;
-	font-size: 30px;
+	line-height: 8vw;
+	font-size: 2vw;
 }
 
 .grid-container {
@@ -45,5 +45,4 @@ body {
 
 #item0 {
 	position: relative;
-	left: 0;
 }
