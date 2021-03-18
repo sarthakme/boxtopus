@@ -1,0 +1,28 @@
+body {
+	font-family: Helvetica;
+}
+
+.grid-item {
+	height: 10vw;
+	width: 10vw;
+	text-align: center;
+	line-height: 10vw;
+	font-size: 30px;
+	border: 1px solid black;
+}
+
+#res {
+	grid-column-end: 4;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 0;
+	margin-top: 5vh;
+}
+
+#container {
+	margin: auto;
+	width: min-content;
+}
