@@ -8,17 +8,138 @@
 	<body>
 		<div id = "container">
 			<div class = "grid-container">
-				<div id = "res">0</div>
+				<div class = "grid-item" id = "res">0</div>
 				<div class = "grid-item" id = "item1" onclick = "clic(1)">1</div>
 				<div class = "grid-item" id = "item2" onclick = "clic(2)">2</div>
 				<div class = "grid-item" id = "item3" onclick = "clic(3)">3</div>
-				<div class = "grid-item" id = "item4" onclick = "clic(4)">4</div>
-				<div class = "grid-item" id = "item5" onclick = "clic(5)">5</div>
-				<div class = "grid-item" id = "item6" onclick = "clic(6)">6</div>
-				<div class = "grid-item" id = "item7" onclick = "clic(7)">7</div>
-				<div class = "grid-item" id = "item8" onclick = "clic(8)">8</div>
-				<div class = "grid-item" id = "item9" onclick = "clic(9)">9</div>
+				<div class = "grid-item" id = "item4" onclick = "op(1)">+</div>
+				<div class = "grid-item" id = "item5" onclick = "op(2)">pow</div>
+				<div class = "grid-item" id = "item6" onclick = "clic(4)">4</div>
+				<div class = "grid-item" id = "item7" onclick = "clic(5)">5</div>
+				<div class = "grid-item" id = "item8" onclick = "clic(6)">6</div>
+				<div class = "grid-item" id = "item9" onclick = "op(3)">-</div>
+				<div class = "grid-item" id = "item10" onclick = "op(4)">root</div>
+				<div class = "grid-item" id = "item11" onclick = "clic(7)">7</div>
+				<div class = "grid-item" id = "item12" onclick = "clic(8)">8</div>
+				<div class = "grid-item" id = "item13" onclick = "clic(9)">9</div>
+				<div class = "grid-item" id = "item14" onclick = "op(5)">*</div>
+				<div class = "grid-item" id = "item15" onclick = "op(6)">/</div>
+				<div class = "grid-item" id = "item16" onclick = "op(7)">%</div>
+				<div class = "grid-item" id = "item17" onclick = "clic(0)">0</div>
+				<div class = "grid-item" id = "item18" onclick = "op(8)">mod</div>
+				<div class = "grid-item" id = "item19" onclick = "op(9)">=</div>
+				<div class = "grid-item" id = "item19" onclick = "c()">CE</div>
 			</div>
 		<div>
+		<script>
+			var h = 0;
+			var prev = 1;
+			var res = document.getElementById("res")
+			document.addEventListener("keypress", press, false, event);
+			function press(event) {
+				var x = event.which;
+				console.log(x);
+				console.log(typeof x);
+				switch(x) {
+					case 48:
+					case 49:
+					case 50:
+					case 51:
+					case 52:
+					case 53:
+					case 54:
+					case 55:
+					case 56:
+					case 57:
+						clic(parseInt(String.fromCharCode(x)));
+						break;
+					case 43:
+						op(1);
+						break;
+					case 94:
+						op(2);
+						break;
+					case 45:
+						op(3);
+						break;
+					case 114:
+					case 82:
+						op(4);
+						break;
+					case 42:
+						op(5);
+						break;
+					case 47:
+						op(6);
+						break;
+					case 37:
+						op(7);
+						break;
+					case 109:
+					case 77:
+						op(8);
+						break;
+					case 61:
+					case 13:
+						op(9);
+						break;
+					case 99:
+					case 67:
+						c();
+				}
+			}
+			function clic(a) {
+				if(prev == 0) {
+					var b = 0;
+					prev = 1;
+				}
+				else
+					var b = res.innerText;
+				b = parseInt(b) * 10 + a;
+				res.innerText = b;
+			}
+			function op(a) {
+				var b = parseFloat(res.innerText);
+				res.innerText = 0;
+				switch(prev) {
+					case 0:
+					case 1: 
+						h += b;
+						break;
+					case 2:
+						h = Math.pow(h, b);
+						break;
+					case 3:
+						h -= b;
+						break;
+					case 4:
+						h = Math.pow(h, 1 / b);
+						break;
+					case 5:
+						h *= b;
+						break;
+					case 6:
+						h /= b;
+						break;
+					case 7:
+						h *= b / 100;
+						break;
+					case 8:
+						h %= b;
+						break;		
+				}
+				if(a == 9) {
+					res.innerText = h;
+					a = 0;
+					h = 0;
+				}
+				prev = a;
+			}
+			function c() {
+				h = 0;
+				prev = 1;
+				res.innerText = 0;
+			}
+		</script>
 	<body>
 </html>
